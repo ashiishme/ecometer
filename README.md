@@ -14,6 +14,8 @@ The application includes the backend of the application in below structure:
 ..
 ```
 
+Inside the `src` there is a `forms` directory used for defining the form structure by hardcoding the fields.
+
 # Running The Application
 
 Please make sure you have the env file ready, you can find the sample in `server/.env.dist`.
@@ -76,3 +78,5 @@ curl --request POST \
     }
 }'
 ```
+
+Please check the `forms` directory for the example form that can be used for the API request.
