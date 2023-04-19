@@ -7,6 +7,12 @@ export class EnergyReading {
   id!: number;
 
   @Column()
+  buildingType!: string;
+
+  @Column()
+  numberOfResidential!: number;
+
+  @Column()
   serialNumber!: string;
 
   @Column()
