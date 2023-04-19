@@ -21,6 +21,9 @@ export class EnergyReading {
   @Column()
   city!: string;
 
+  @Column({ nullable: true })
+  userId!: number;
+
   @ManyToOne(() => User, (user) => user.energyReadings)
   user!: User;
 }

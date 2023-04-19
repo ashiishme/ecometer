@@ -47,11 +47,17 @@ export class SubmitFormController implements Controller {
     const schema = formStructure[formName].validationSchema;
     await schema.validate({ ...energyInfo, user });
 
-    await this.userRepository.create({ ...new User(), ...user });
-    await this.energyReadingRepository.create({
-      ...new EnergyReading(),
-      ...energyInfo,
+    const createdUser = await this.userRepository.create({
+      ...new User(),
+      ...user,
     });
+    if (createdUser) {
+      await this.energyReadingRepository.create({
+        ...new EnergyReading(),
+        ...energyInfo,
+        userId: createdUser.id,
+      });
+    }
 
     res.status(200).json({ message: "Successfully submitted" });
   }
