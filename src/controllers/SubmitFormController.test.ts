@@ -98,6 +98,14 @@ describe("SubmitFormController", () => {
   });
 
   it("should return 200 by creating user and energy reading data", async () => {
+    mockUserRepository.create.mockReturnValue({
+      id: "123",
+      firstName: "Ashish",
+      lastName: "Yadav",
+      email: "adsadas@example.com",
+      phoneNumber: "1234567890",
+    });
+
     const controller = new SubmitFormController(
       mockUserRepository as UserRepository,
       mockEnergyReadingRepository as EnergyReadingRepository,
